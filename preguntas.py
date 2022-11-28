@@ -212,7 +212,7 @@ def pregunta_03():
     # Cree un objeto ColumnTransformer que aplique OneHotEncoder a las columnas
     # tipo texto. Use make_column_selector para seleccionar las columnas. Las
     # columnas numéricas no deben ser transformadas.
-    columnTransformer = ColumnTransformer(
+    columnTransformer = make_column_selector(
         (
             OneHotEncoder(),
             make_column_selector(dtype_include=object),
