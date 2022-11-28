@@ -155,7 +155,7 @@ def pregunta_01():
     df = pd.read_csv('german.csv')
 
     # Asigne la columna `default` a la variable `y`.
-    y = df[['default']].copy()
+    y = df['default'].copy()
 
     # Asigne una copia del dataframe `df` a la variable `X`.
     X = df.copy()
