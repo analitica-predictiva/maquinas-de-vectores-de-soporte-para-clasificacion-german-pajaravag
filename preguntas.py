@@ -214,7 +214,6 @@ def pregunta_03():
     # columnas numéricas no deben ser transformadas.
     columnTransformer = ColumnTransformer(
         (
-            'onehot',
             OneHotEncoder(),
             make_column_selector(dtype_include=object),
         ),
