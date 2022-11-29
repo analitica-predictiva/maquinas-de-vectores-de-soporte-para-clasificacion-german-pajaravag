@@ -212,14 +212,25 @@ def pregunta_03():
     # Cree un objeto ColumnTransformer que aplique OneHotEncoder a las columnas
     # tipo texto. Use make_column_selector para seleccionar las columnas. Las
     # columnas numéricas no deben ser transformadas.
-    columnTransformer = make_column_selector(
+    # columnTransformer = ColumnTransformer(
+    #     (
+    #         OneHotEncoder(),
+    #         make_column_selector(dtype_include=object),
+    #     )
+
+    # )
+
+
+    columnTransformer = ColumnTransformer(
+    [
         (
+            "onehot",
             OneHotEncoder(),
             make_column_selector(dtype_include=object),
         ),
-        #remainder="passthrough",
-    )
-
+    ],
+    remainder="passthrough",
+)
     # Cree un pipeline que contenga el columnTransformer y el modelo SVC.
     pipeline = Pipeline(
         steps=[
